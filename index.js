@@ -2,6 +2,49 @@ const inventory = newInventory()
 move(inventory).to(0, 0)
 
 const character = newImage('assets/green-character/static.gif')
+let direction = null;
+let x = 100;
+let y = 250;
+
+function moveCharacter(){
+    if (direction === "west"){
+        x = x - 1
+    };
+    
+    if (direction === "east"){
+        x = x + 1
+    };
+    
+    if (direction === "north"){
+        y = y + 1
+    };
+    
+    if (direction === "sorth"){
+        y = y - 1
+    };
+
+    character.style.left = x + "px";
+    character.style.bottom = y + "px";
+};
+
+setInterval(moveCharacter, 1);
+
+document.addEventListener("keydown", function(e){
+    if(e.repeat) return;
+    if(e.key === "ArrowLeft"){
+        direction = "west"
+    };
+    if(e.key === "ArrowRight"){
+        direction = "east"
+    };
+    if(e.key === "ArrowUp"){
+        direction = "north"
+    };
+    if(e.key === "ArrowDown"){
+        direction = "south"
+    };
+})
+
 move(character).to(100, 250)
 
 
