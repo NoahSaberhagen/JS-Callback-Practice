@@ -1,12 +1,12 @@
-function move(element) {
+const move = (element) => {
     element.style.position = 'fixed'
 
-    function moveToCoordinates(left, bottom) {
+    const moveToCoordinates = (left, bottom) => {
         element.style.left = left + 'px'
         element.style.bottom = bottom + 'px'
     }
 
-    function moveWithArrowKeys(left, bottom, onDirectionChange){
+    const moveWithArrowKeys = (left, bottom, onDirectionChange) => {
         let direction = null;
         let x = left;
         let y = bottom;
@@ -31,7 +31,7 @@ function move(element) {
             onDirectionChange(direction);
         });
 
-        function moveCharacter(){
+        const moveCharacter = () => {
             if (direction === "west"){
                 x = x - 1
             };
@@ -52,7 +52,6 @@ function move(element) {
             character.style.bottom = y + "px";
         };
         
-        setInterval(moveCharacter, 1);
         setInterval(moveCharacter, 1);
 
         document.addEventListener("keyup", function(e){
